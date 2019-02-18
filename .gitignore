@@ -1,0 +1,7 @@
+#disabled notemodules
+server/node_modules/
+app/node_modules/
+
+#disabled cache
+app/metro-cache/
+app/*.sock
