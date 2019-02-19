@@ -1,0 +1,4 @@
+#Mon Feb 11 14:29:18 WIB 2019
+base.0=/home/ajaa/Project/react/task0902-ecommerce/app/android/app/build/intermediates/transforms/dexMerger/debug/0
+path.0=classes.dex
+renamed.0=classes.dex

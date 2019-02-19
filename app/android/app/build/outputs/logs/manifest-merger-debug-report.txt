@@ -1,0 +1,209 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml:1:1-27:12
+INJECTED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml:1:1-27:12
+INJECTED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml:1:1-27:12
+INJECTED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml:1:1-27:12
+MERGED from [:react-native-gesture-handler] /home/ajaa/Project/react/task0902-ecommerce/app/node_modules/react-native-gesture-handler/android/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:2:1-11:12
+MERGED from [com.facebook.react:react-native:0.58.3] /home/ajaa/.gradle/caches/transforms-1/files-1.1/react-native-0.58.3.aar/20d4011623b69002c116d9165202156e/AndroidManifest.xml:2:1-15:12
+MERGED from [com.android.support:appcompat-v7:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/1124a4799ed86331dd609d0458c6a081/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/c78e918c75b504dd4c47667acb23876b/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/9433e966e4f2fd3dfb395f3d53be0177/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/96f94ac2803c03f29b6c0c116af2da87/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/0a0c1ba88e6e7bfaaa01955ba12d6ade/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/7e1e14f8d5da7b727546a94a75f5e54e/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:loader:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/578805ab6f688660568e6ed37f750cd3/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:viewpager:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/7d205456b03880f5d72dec5f26c28e74/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/02fbe0c9cc1bcdaf06d5d6206d48ce07/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:drawerlayout:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/01cd7798acd0de862746fb85b59f7995/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/bb6471c57c2f30dd111b0a40340f0b6d/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customview:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/eee26004cfcf4c5fa0fa89b259e87af4/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/2de6ffe77f22f2af852f91abb5e5d353/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/b2d0796711cafa550faee0e6bedf84c6/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/bfe9bdfa02e37c5db62d870494b4dee2/AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/d09c5b321699388624b6ce793a265366/AndroidManifest.xml:17:1-25:12
+MERGED from [com.android.support:cursoradapter:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/0f8fb8d957b1a544c3064c76f9683778/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /home/ajaa/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/5ad1fcce81a347cb305011d9b95e3bb6/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:documentfile:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/d7ed03e9e1157c3c3fee64bc1034bc90/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/874c78b3e92449ffb7cc65e6874d6b68/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:print:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/e912c7688c804bf2a13ab4af28ba492d/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /home/ajaa/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/19c86c550a5c6fff7e5d322fc370a05e/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /home/ajaa/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/b4c0a8b0e175aed1086651238649a0d6/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /home/ajaa/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/94bc630822da55b3f67d4bf639fddcdb/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] /home/ajaa/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/ec4a7351ed7ce06d5445b4c677f7ab37/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:interpolator:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/59f5b95fce98d89dcd761d77073b3574/AndroidManifest.xml:17:1-22:12
+MERGED from [com.facebook.fresco:fresco:1.10.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/fresco-1.10.0.aar/0c41787c26c1bf3224d2af0702bb646e/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.10.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.10.0.aar/874e4ff425fa8057b1ad7b3ae8e4a16b/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:drawee:1.10.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/drawee-1.10.0.aar/4f427da6f9a633b16a1a72aae5f2f8e4/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline:1.10.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.10.0.aar/eb68adf2bf0b852929d56f335d71ee3e/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-base:1.10.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.10.0.aar/1d250d4735d7778e3992ef021cf1ac26/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.soloader:soloader:0.5.1] /home/ajaa/.gradle/caches/transforms-1/files-1.1/soloader-0.5.1.aar/4df93353d8eb81b436078450174b421d/AndroidManifest.xml:2:1-13:12
+MERGED from [org.webkit:android-jsc:r174650] /home/ajaa/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/8b71c4f7de7e2d7c5552d0d20464d455/AndroidManifest.xml:1:1-3:12
+MERGED from [com.facebook.fresco:fbcore:1.10.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/fbcore-1.10.0.aar/53bb06110531dde261f61251806b5089/AndroidManifest.xml:2:1-9:12
+INJECTED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml:1:1-27:12
+INJECTED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml:1:1-27:12
+INJECTED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml:1:1-27:12
+	package
+		ADDED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml:2:5-28
+		INJECTED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml:1:1-27:12
+		INJECTED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml:1:1-27:12
+		INJECTED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml:1:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml:4:5-67
+	android:name
+		ADDED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml:4:22-64
+uses-permission#android.permission.SYSTEM_ALERT_WINDOW
+ADDED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml:5:5-77
+MERGED from [com.facebook.react:react-native:0.58.3] /home/ajaa/.gradle/caches/transforms-1/files-1.1/react-native-0.58.3.aar/20d4011623b69002c116d9165202156e/AndroidManifest.xml:11:5-78
+MERGED from [com.facebook.react:react-native:0.58.3] /home/ajaa/.gradle/caches/transforms-1/files-1.1/react-native-0.58.3.aar/20d4011623b69002c116d9165202156e/AndroidManifest.xml:11:5-78
+	android:name
+		ADDED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml:5:22-75
+application
+ADDED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml:7:5-25:19
+MERGED from [com.facebook.react:react-native:0.58.3] /home/ajaa/.gradle/caches/transforms-1/files-1.1/react-native-0.58.3.aar/20d4011623b69002c116d9165202156e/AndroidManifest.xml:13:5-20
+MERGED from [com.facebook.react:react-native:0.58.3] /home/ajaa/.gradle/caches/transforms-1/files-1.1/react-native-0.58.3.aar/20d4011623b69002c116d9165202156e/AndroidManifest.xml:13:5-20
+MERGED from [com.android.support:support-compat:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/bfe9bdfa02e37c5db62d870494b4dee2/AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:support-compat:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/bfe9bdfa02e37c5db62d870494b4dee2/AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/d09c5b321699388624b6ce793a265366/AndroidManifest.xml:22:5-23:19
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/d09c5b321699388624b6ce793a265366/AndroidManifest.xml:22:5-23:19
+MERGED from [com.facebook.soloader:soloader:0.5.1] /home/ajaa/.gradle/caches/transforms-1/files-1.1/soloader-0.5.1.aar/4df93353d8eb81b436078450174b421d/AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.soloader:soloader:0.5.1] /home/ajaa/.gradle/caches/transforms-1/files-1.1/soloader-0.5.1.aar/4df93353d8eb81b436078450174b421d/AndroidManifest.xml:11:5-20
+MERGED from [org.webkit:android-jsc:r174650] /home/ajaa/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/8b71c4f7de7e2d7c5552d0d20464d455/AndroidManifest.xml:2:3-17
+MERGED from [org.webkit:android-jsc:r174650] /home/ajaa/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/8b71c4f7de7e2d7c5552d0d20464d455/AndroidManifest.xml:2:3-17
+	android:appComponentFactory
+		ADDED from [com.android.support:support-compat:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/bfe9bdfa02e37c5db62d870494b4dee2/AndroidManifest.xml:22:18-91
+	android:label
+		ADDED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml:9:7-39
+	android:roundIcon
+		ADDED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml:11:7-52
+	android:icon
+		ADDED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml:10:7-41
+	android:allowBackup
+		ADDED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml:12:7-34
+	android:theme
+		ADDED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml:13:7-38
+	android:name
+		ADDED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml:8:7-38
+activity#com.ecommerce.MainActivity
+ADDED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml:14:7-23:18
+	android:label
+		ADDED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml:16:9-41
+	android:windowSoftInputMode
+		ADDED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml:18:9-51
+	android:configChanges
+		ADDED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml:17:9-79
+	android:name
+		ADDED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml:15:9-37
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml:19:9-22:25
+action#android.intent.action.MAIN
+ADDED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml:20:13-65
+	android:name
+		ADDED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml:20:21-62
+category#android.intent.category.LAUNCHER
+ADDED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml:21:13-73
+	android:name
+		ADDED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml:21:23-70
+activity#com.facebook.react.devsupport.DevSettingsActivity
+ADDED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml:24:7-84
+	android:name
+		ADDED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml:24:17-81
+uses-sdk
+INJECTED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml
+INJECTED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml
+MERGED from [:react-native-gesture-handler] /home/ajaa/Project/react/task0902-ecommerce/app/node_modules/react-native-gesture-handler/android/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-gesture-handler] /home/ajaa/Project/react/task0902-ecommerce/app/node_modules/react-native-gesture-handler/android/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.58.3] /home/ajaa/.gradle/caches/transforms-1/files-1.1/react-native-0.58.3.aar/20d4011623b69002c116d9165202156e/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.58.3] /home/ajaa/.gradle/caches/transforms-1/files-1.1/react-native-0.58.3.aar/20d4011623b69002c116d9165202156e/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:appcompat-v7:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/1124a4799ed86331dd609d0458c6a081/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/1124a4799ed86331dd609d0458c6a081/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/c78e918c75b504dd4c47667acb23876b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/c78e918c75b504dd4c47667acb23876b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/9433e966e4f2fd3dfb395f3d53be0177/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/9433e966e4f2fd3dfb395f3d53be0177/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/96f94ac2803c03f29b6c0c116af2da87/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/96f94ac2803c03f29b6c0c116af2da87/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/0a0c1ba88e6e7bfaaa01955ba12d6ade/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/0a0c1ba88e6e7bfaaa01955ba12d6ade/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/7e1e14f8d5da7b727546a94a75f5e54e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/7e1e14f8d5da7b727546a94a75f5e54e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/578805ab6f688660568e6ed37f750cd3/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/578805ab6f688660568e6ed37f750cd3/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/7d205456b03880f5d72dec5f26c28e74/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/7d205456b03880f5d72dec5f26c28e74/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/02fbe0c9cc1bcdaf06d5d6206d48ce07/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/02fbe0c9cc1bcdaf06d5d6206d48ce07/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/01cd7798acd0de862746fb85b59f7995/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/01cd7798acd0de862746fb85b59f7995/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/bb6471c57c2f30dd111b0a40340f0b6d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/bb6471c57c2f30dd111b0a40340f0b6d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/eee26004cfcf4c5fa0fa89b259e87af4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/eee26004cfcf4c5fa0fa89b259e87af4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/2de6ffe77f22f2af852f91abb5e5d353/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/2de6ffe77f22f2af852f91abb5e5d353/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/b2d0796711cafa550faee0e6bedf84c6/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/b2d0796711cafa550faee0e6bedf84c6/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/bfe9bdfa02e37c5db62d870494b4dee2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/bfe9bdfa02e37c5db62d870494b4dee2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/d09c5b321699388624b6ce793a265366/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/d09c5b321699388624b6ce793a265366/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/0f8fb8d957b1a544c3064c76f9683778/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/0f8fb8d957b1a544c3064c76f9683778/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /home/ajaa/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/5ad1fcce81a347cb305011d9b95e3bb6/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /home/ajaa/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/5ad1fcce81a347cb305011d9b95e3bb6/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/d7ed03e9e1157c3c3fee64bc1034bc90/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/d7ed03e9e1157c3c3fee64bc1034bc90/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/874c78b3e92449ffb7cc65e6874d6b68/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/874c78b3e92449ffb7cc65e6874d6b68/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/e912c7688c804bf2a13ab4af28ba492d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/e912c7688c804bf2a13ab4af28ba492d/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /home/ajaa/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/19c86c550a5c6fff7e5d322fc370a05e/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /home/ajaa/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/19c86c550a5c6fff7e5d322fc370a05e/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /home/ajaa/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/b4c0a8b0e175aed1086651238649a0d6/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /home/ajaa/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/b4c0a8b0e175aed1086651238649a0d6/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /home/ajaa/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/94bc630822da55b3f67d4bf639fddcdb/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /home/ajaa/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/94bc630822da55b3f67d4bf639fddcdb/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /home/ajaa/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/ec4a7351ed7ce06d5445b4c677f7ab37/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /home/ajaa/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/ec4a7351ed7ce06d5445b4c677f7ab37/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/59f5b95fce98d89dcd761d77073b3574/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/59f5b95fce98d89dcd761d77073b3574/AndroidManifest.xml:20:5-44
+MERGED from [com.facebook.fresco:fresco:1.10.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/fresco-1.10.0.aar/0c41787c26c1bf3224d2af0702bb646e/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fresco:1.10.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/fresco-1.10.0.aar/0c41787c26c1bf3224d2af0702bb646e/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.10.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.10.0.aar/874e4ff425fa8057b1ad7b3ae8e4a16b/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.10.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.10.0.aar/874e4ff425fa8057b1ad7b3ae8e4a16b/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:1.10.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/drawee-1.10.0.aar/4f427da6f9a633b16a1a72aae5f2f8e4/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:1.10.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/drawee-1.10.0.aar/4f427da6f9a633b16a1a72aae5f2f8e4/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:1.10.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.10.0.aar/eb68adf2bf0b852929d56f335d71ee3e/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:1.10.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.10.0.aar/eb68adf2bf0b852929d56f335d71ee3e/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:1.10.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.10.0.aar/1d250d4735d7778e3992ef021cf1ac26/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:1.10.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.10.0.aar/1d250d4735d7778e3992ef021cf1ac26/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.soloader:soloader:0.5.1] /home/ajaa/.gradle/caches/transforms-1/files-1.1/soloader-0.5.1.aar/4df93353d8eb81b436078450174b421d/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.soloader:soloader:0.5.1] /home/ajaa/.gradle/caches/transforms-1/files-1.1/soloader-0.5.1.aar/4df93353d8eb81b436078450174b421d/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.fresco:fbcore:1.10.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/fbcore-1.10.0.aar/53bb06110531dde261f61251806b5089/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:1.10.0] /home/ajaa/.gradle/caches/transforms-1/files-1.1/fbcore-1.10.0.aar/53bb06110531dde261f61251806b5089/AndroidManifest.xml:5:5-7:41
+INJECTED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml
+INJECTED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+IMPLIED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml:1:1-27:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
+uses-permission#android.permission.READ_PHONE_STATE
+IMPLIED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml:1:1-27:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+IMPLIED from /home/ajaa/Project/react/task0902-ecommerce/app/android/app/src/main/AndroidManifest.xml:1:1-27:12 reason: org.webkit.android_jsc requested WRITE_EXTERNAL_STORAGE

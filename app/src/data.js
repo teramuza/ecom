@@ -1,0 +1,71 @@
+products = [ 
+    {
+        key : 1,
+        title : "Meizu Pro 7 Limited Edition 6GB/128GB",
+        price : 4566900, 
+        category : "Smartphone",
+        oldPrice : 5450999,
+        image : "https://image4.geekbuying.com/ggo_pic/2017-07-28/Meizu-Pro-7-Plus-5-7-Inch-6GB-64GB-Smartphone-Black-440920-.jpg",
+        image2 : "https://images-na.ssl-images-amazon.com/images/I/418YzWG8iOL.jpg",
+        image3 : "https://image2.geekbuying.com/ggo_pic/2017-10-17/MEIZU-Pro-7-Plus-Silicone-Case-Transparent-476270-.jpg",
+        seller : "Meizu Global",
+        discount : "16%",
+        detail : "The PRO 7 features a Helio P25 processor of high performance and low power consumption, and the PRO 7 Plus has a more advanced 10 nm Helio X30 processor, which greatly increases the performance while reducing power consumption at the same time. Whether it's a phone call or a powerful game, the PRO 7 Plus won't let you down.",
+            
+    },
+            
+    {
+        key : 2,
+        title : "Asus ROG Gaming Phone 128GB",
+        price : 12545860,
+        category : "Smartphone",
+        image : "https://www.senheng.com.my/media/catalog/product/cache/3/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/r/o/rog-phone-1_1.jpg",
+        image2 : "https://static.toiimg.com/thumb/msid-64668903,width-640,resizemode-4/64668903.jpg",
+        image3 : "https://images-na.ssl-images-amazon.com/images/I/61gor7EwOlL._SX425_.jpg",
+        seller : "TAM",
+        discount: "3%",
+        detail : "Asus ROG Phone is powered by 2.96GHz octa-core (4x2.96GHz + 4x1.7GHz) processor and it comes with 8GB of RAM. The phone packs 128GB of internal storage that cannot be expanded. As far as the cameras are concerned, the Asus ROG Phone packs a 12-megapixel (f/1.8, 1.4-micron) primary camera and a 8-megapixel secondary camera on the rear and a 8-megapixel front shooter for selfies",
+            
+    },
+    {
+        key : 3,
+        title : "Samsung Galaxy S10 Dark Edition",
+        price : 24104700,
+        oldPrice : 24900500,
+        category : "Smartphone",
+        image : "https://awsimages.detik.net.id/community/media/visual/2018/10/30/dbf54c51-5f68-4424-b95d-8397da90eab2.png?w=700&q=90",
+        image2 : "https://cdn.wccftech.com/wp-content/uploads/2019/02/galaxy-s10-concept-render-740x430.png",
+        image3 : "https://www.compareprix.in/images/resizeimages/product/235/samsung-galaxy-s10.jpg?v=74",
+        seller : "Samsung Official",
+        discount: "3%",
+        detail : "4G Phone with 6.1Inch Super AMOLED Display, Primary Camera use Triple 12MP f/1.5-2.4, f/2.4. and Secondary 8 MP, f/1.7. S10 comes with a Li-Ion battery with a capacity of up to 3300mAh. ", 
+    },
+    {
+        key : 4,
+        title : "Nokia X6 Black Global ROM",
+        price : 2999500,
+        oldPrice : 3561499,
+        category : "Smartphone",
+        image : "https://gloimg.gbtcdn.com/soa/gb/pdm-product-pic/Electronic/2018/08/23/goods_img_big-v1/20180823104328_49238.jpg",
+        image2 : "https://i.gadgets360cdn.com/products/large/1526454988_635_nokia_x6.jpg",
+        image3 : "https://tekshanghai.com/wp-content/uploads/2018/06/New-Nokia-X6-32GPict.jpg",
+        seller : "Nokiae-store",
+        discount : "15%",
+        detail : "Nokia X6 smartphone has a 5.8 inch IPS LCD capacitive touchscreen, with 16M colours. The phone has a display resolution of 1080 x 2280 pixels, and 19:9 ratio. It has a 435 ppi density and comes with Corning Gorilla Glass 3 protection. Under the hood, the device runs on Android 8.1 (Oreo) OS and has a Qualcomm SDM636 Snapdragon 636 octa-core 1.8 GHz Kryo 260 Soc. It has an Adreno 509 GPU. ",
+    },
+    {
+        key : 5,
+        title : "Oneplus 6 6GB/64GB Black",
+        price : 6899000,
+        oldPrice : 7454400,
+        category : "Smartphone",
+        image : "https://selular.id/wp-content/uploads/2018/05/oneplus-6-leak-1-1.jpg",
+        image2 : "https://static.toiimg.com/thumb/msid-64260433,width-640,resizemode-4/64260433.jpg",
+        image3 : "http://dodyirawan.my.id/img/Oneplus6.jpg",
+        seller : "OnePlus",
+        discount : "7%",
+        detail : "OnePlus 6 comes with a sleek 6.28-inch display with Optic AMOLED capacitive touchscreen, 16M colours and Corning Gorilla Glass 5 protection. The phone has sleek dimensions of 155.7 x 75.4 x 7.8 mm and weighs just 177 grams. The device has a screen resolution of 1080 x 2280 pixels and 19:9 aspect ratio. The OnePlus 6 is the latest flagship by OnePlus and runs on Oxygen OS based on Android 8.1 (Oreo) OS. Under the hood, the phone is powered by a Qualcomm SDM845 Snapdragon 845 processor with Adreno 630 graphics processor. OnePlus 6 has 6GB RAM and 64 GB internal storage. It has dual rear cameras 16 MP + 20 MP with phase detection autofocus, dual-LED flash, geo-tagging, touch focus, face detection, HDR, and panorama. The phone has a 16 MP front camera for clicking selfies. Connectivity options included in the device are Wi-Fi, Bluetooth 5.0, GPS, NFC, and USB 2.0. The phone comes with an array of sensors including a rear mounted fingerprint sensor, accelerometer, gyroscope, proximity, and compass sensors. The phone has fast battery charging capabilities. The OnePlus 6 has a non-removable Li-Po 3300 mAh battery",
+    }
+]
+
+dumpCarts = []
