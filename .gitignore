@@ -5,3 +5,6 @@ app/node_modules/
 #disabled cache
 app/metro-cache/
 app/*.sock
+
+#disabled backup
+app.bak/
