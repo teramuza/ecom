@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import { Container, Content, Left, Body, Right, Card, CardItem, Text, Fab, Icon, Badge, Header,Button, Title, Item, Input, List, ListItem, Thumbnail } from 'native-base';
 import ImageSlider from 'react-native-image-slider';
 
-
 import { getProducts } from '../publics/redux/actions/products';
+
 
 type Props = {};
 class Products extends Component<Props> {
@@ -62,10 +62,10 @@ class Products extends Component<Props> {
             <Icon name="ios-search" />
           </Item>
           <Right>
-          <Button transparent>
+          <Button transparent onPress={() => this.props.navigation.navigate('Test') }>
             <Icon type="MaterialIcons" name="loyalty"/>
           </Button>
-          <Button transparent>
+          <Button transparent onPress={() => this.props.navigation.navigate('Carts') }>
             <Icon name="cart"/>
           </Button>
           <Button transparent>

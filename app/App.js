@@ -4,8 +4,9 @@ import { Provider } from 'react-redux';
 
 import store from './src/publics/redux/store';
 
-import ProductDetail from './src/screens/productDetail';
 import Products from './src/screens/Products';
+import ProductDetail from './src/screens/productDetail';
+import Cart from './src/screens/Cart';
 import Test from './src/screens/Test';
 
 const AppNavigator = createStackNavigator({
@@ -24,6 +25,12 @@ const AppNavigator = createStackNavigator({
                 tintColor: '#fff',
                 tabBarVisible : false
             }
+        },
+        Carts : {
+            screen: Cart
+        },
+        Test : {
+            screen: Test
         }
     })
 

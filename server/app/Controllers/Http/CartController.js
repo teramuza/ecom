@@ -31,6 +31,7 @@ class CartController {
 
 	async input({ request }){
 		await Cart.create(request.post())
+		return request.post()
 	}
 
 	async qtyCtrl({ params }){

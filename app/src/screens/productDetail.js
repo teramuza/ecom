@@ -1,12 +1,13 @@
-import React, { Component } from 'react'
-import { Image, View, TouchableOpacity, Alert } from 'react-native'
-import { Container, Header, Title, Content, Badge, Footer, FooterTab, Button, Left, Right, Body, Icon, Text, H3, Card, CardItem } from 'native-base'
-import { createStackNavigator, createAppContainer } from 'react-navigation'
-import ImageSlider from 'react-native-image-slider'
+import React, { Component } from 'react';
+import { Image, View, TouchableOpacity, Alert } from 'react-native';
+import { Container, Header, Title, Content, Badge, Footer, FooterTab, Button, Left, Right, Body, Icon, Text, H3, Card, CardItem } from 'native-base';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
+import ImageSlider from 'react-native-image-slider';
 import { connect } from 'react-redux';
 
-
 import { getProduct } from '../publics/redux/actions/products';
+import { addCart } from '../publics/redux/actions/carts';
+
 
 type Props = {};
 class ProductDetail extends Component<Props> {
@@ -16,10 +17,21 @@ class ProductDetail extends Component<Props> {
         this.props.dispatch(getProduct(prodId));
     }
 
-    componentDidMount(){
+    componentWillMount(){
         this.getData()
     }
- 
+
+    async handleSubmit(val){
+        console.warn('pressed');
+            await this.props.dispatch(addCart({
+                prod_id : val,
+                qty : 1
+            }));
+            console.warn('success');
+
+        this.props.navigation.navigate('Carts')
+    }
+    
     render() {
         const prod = this.props.products.item
         return (
@@ -66,7 +78,7 @@ class ProductDetail extends Component<Props> {
                                 <Body>
                                     <Text>Nama Produk : {prod.title}</Text>
                                     <Text>Kategori : {prod.category}</Text>
-                                    <Text>Harga : Rp {this.priceToString(Number(prod.oldPrice))},-</Text>
+                                    <Text>Harga : Rp {this.priceToString(Number(prod.price))},-</Text>
                                     <Text>Penjual : {prod.seller}</Text>
 
                                     <Text style={{paddingTop: 20, paddingBottom: 15, fontSize: 18, fontWeight: '400'}}>Deskripsi Produk</Text>
@@ -83,7 +95,7 @@ class ProductDetail extends Component<Props> {
                             <Icon type="MaterialIcons" name="loyalty" style={{color: '#FFFFFF'}}/>
                             <Text style={{color: '#FFFFFF'}}>Tambah ke Wishlish</Text>
                         </Button>
-                        <Button key={prod.id} full onPress={() => this.toCart(prod.id)}>
+                        <Button key={prod.id} full onPress={() => this.handleSubmit(prod.id)}>
                             <Icon name='cart' style={{color: '#FFFFFF'}}/>
                             <Text style={{color: '#FFFFFF'}}>Pesan sekarang</Text>
                         </Button>

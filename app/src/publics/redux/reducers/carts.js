@@ -1,5 +1,4 @@
 const initialValue = {
-	item : {},
 	data : [],
 	isLoading : false,
 	isError: false
@@ -7,46 +6,65 @@ const initialValue = {
 
 export default (state = initialValue, action) => {
   	switch (action.type) {
-	    case 'GET_PRODUCTS_PENDING':
+	    case 'GET_CARTS_PENDING':
 	    	return{
 	    		...state,
 	    		isLoading : true
 	    	}
 
-	    case 'GET_PRODUCTS_FULFILLED':
+	    case 'GET_CARTS_FULFILLED':
 	    	return{
 	    		...state,
 	    		isLoading : false,
 	    		data : action.payload.data
 	    	}
 
-	    case 'GET_PRODUCTS_REJECTED':
+	    case 'GET_CARTS_REJECTED':
 	    	return{
 	    		...state,
 	    		isLoading : false,
 	    		isError : true,
 	    	}
 
-	    case 'GET_PRODUCT_PENDING':
+	    case 'POST_CART_PENDING':
 	    	return{
 	    		...state,
-	    		isLoading : true,
-	    		item : {}
+	    		isLoading : true
 	    	}
 
-	    case 'GET_PRODUCT_FULFILLED':
+	    case 'POST_CART_FULFILLED':
 	    	return{
 	    		...state,
-	    		isLoading : false,
-	    		item : action.payload.data
+	    		isLoading : false
 	    	}
 
-	    case 'GET_PRODUCT_REJECTED':
+	    case 'POST_CART_REJECTED':
 	    	return{
 	    		...state,
 	    		isLoading : false,
 	    		isError : true,
 	    		item : 'Error Network'
+	    	}
+
+	    case 'DEL_CART_PENDING':
+	    	return{
+	    		...state,
+	    		isLoading : true,
+	    		isError : false
+	    	}
+
+	    case 'DEL_CART_FULFILLED':
+	    	return{
+	    		...state,
+	    		isLoading : false,
+	    		isError : false
+	    	}
+
+	    case 'DEL_CART_REJECTED':
+	    	return{
+	    		...state,
+	    		isLoading : false,
+	    		isError : true
 	    	}
 
 	    default:
