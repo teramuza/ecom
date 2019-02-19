@@ -3,7 +3,7 @@ import { View, Alert, FlatList } from 'react-native';
 import { Container, Header, Title, Content, List, ListItem, Thumbnail, Text, Left, Body, Right, Button, Footer, FooterTab, Badge, Icon } from 'native-base';
 import { connect } from 'react-redux';
 
-import { getCarts } from '../publics/redux/actions/carts';
+import { getCarts, patchQty, delCart } from '../publics/redux/actions/carts';
 
 
 type Props = {};
@@ -122,16 +122,16 @@ class Cart extends Component<Props> {
 
     async IncrementItem(item){
         const newQty = item.qty + 1
-        await axios.patch(`${apiUrl}/order/${item.id}/${newQty}`)
+        await this.props.dispatch(patchQty(item.id, newQty));
 
-        this.fetchData()
+        this.getData()
     } 
 
     async DecreaseItem(item){
         const newQty = item.qty - 1
-        await axios.patch(`${apiUrl}/order/${item.id}/${newQty}`)
+        await this.props.dispatch(patchQty(item.id, newQty));
 
-        this.fetchData()
+        this.getData()
     }
 
     dropItemConfirm(key, index){
@@ -140,12 +140,10 @@ class Cart extends Component<Props> {
             'Apa anda yakin ingin menghapus barang ini dari troli?',
             [
                 {text: 'Tidak'},
-                {text: 'Ya', onPress: () => {
-                    axios.delete(`${apiUrl}/order/${key}`)
-                    .then(res => {
-                        this.state.cartItems.splice(index, 1)
-                        this.setState({refresh : 'refresh'})
-                    })
+                {text: 'Ya', onPress: async () => {
+                    await this.props.dispatch(delCart(key));
+                    // this.props.carts.data.splice(index, 1);
+                    this.getData();
                 }
                 },
             ]

@@ -16,6 +16,13 @@ export const addCart = (body) => {
 	}
 }
 
+export const patchQty = (id,newQty) => {
+	return {
+		type : 'PATCH_QTY',
+		payload : axios.patch(`${apiUrl}/order/${id}/${newQty}`)
+	}
+}
+
 export const delCart = (id) => {
 	return {
 		type : 'DEL_CART',
