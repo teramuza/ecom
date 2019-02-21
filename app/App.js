@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Header, Left, Right, Button, Icon, Item, Input } from 'native-base';
 import { createBottomTabNavigator, createStackNavigator, createAppContainer } from 'react-navigation';
 import { Provider } from 'react-redux';
 
@@ -7,7 +8,8 @@ import store from './src/publics/redux/store';
 import Products from './src/screens/Products';
 import ProductDetail from './src/screens/productDetail';
 import Cart from './src/screens/Cart';
-import Test from './src/screens/Test';
+import Profile from './src/screens/Profile';
+import Favorite from './src/screens/Favorite';
 
 const AppNavigator = createStackNavigator({
 
@@ -15,22 +17,27 @@ const AppNavigator = createStackNavigator({
         Home: {
             screen: Products,
             navigationOptions: {
-                header : null,
+                header : null
             }
         },
         Detail : {
             screen: ProductDetail,
             navigationOptions:{
                 headerTransparent : true,
-                tintColor: '#fff',
-                tabBarVisible : false
+                tintColor: '#fff'
             }
         },
         Carts : {
             screen: Cart
         },
-        Test : {
-            screen: Test
+        Profile : {
+            screen : Profile,
+            navigationOptions: {
+                header : null
+            }
+        },
+        Favorite : {
+            screen : Favorite
         }
     })
 

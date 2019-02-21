@@ -6,7 +6,7 @@ import ImageSlider from 'react-native-image-slider';
 import { connect } from 'react-redux';
 
 import { getProduct } from '../publics/redux/actions/products';
-import { addCart } from '../publics/redux/actions/carts';
+import { addCart, getCarts } from '../publics/redux/actions/carts';
 
 
 type Props = {};
@@ -22,12 +22,15 @@ class ProductDetail extends Component<Props> {
     }
 
     async handleSubmit(val){
-        console.warn('pressed');
+        if(!this.props.cartItems.find(x => x.prod_id === this.props.navigation.state.params.pushData)){
             await this.props.dispatch(addCart({
                 prod_id : val,
                 qty : 1
             }));
-            console.warn('success');
+            this.props.dispatch(getCarts())
+
+        }
+
 
         this.props.navigation.navigate('Carts')
     }
@@ -35,7 +38,8 @@ class ProductDetail extends Component<Props> {
     render() {
         const prod = this.props.products.item
         return (
-            <Container>                
+            <Container>
+
                 <Content style={{paddingTop: 30}}>
                     <ImageSlider images={[prod.image, prod.image2, prod.image3]} style={{height: 400, width: null}} />
                 
@@ -120,17 +124,6 @@ class ProductDetail extends Component<Props> {
         stringPrice = value.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.")
         return stringPrice
     }
-
-    // async toCart(value){
-    //     const res = await axios.get(`${apiUrl}/cartBy/prod_id/${value}`)
-    //     if(!res.data.id){
-    //         await axios.post(`${apiUrl}/order`, { 
-    //             prod_id : value,
-    //             qty : 1,
-    //         })
-    //     }
-    //     this.props.navigation.navigate('Cart')
-    // }
     
     alertWishlish(){
         Alert.alert(
@@ -146,7 +139,8 @@ class ProductDetail extends Component<Props> {
 
 const mapStateToProps = (state) => {
   return {
-    products: state.products
+    products: state.products,
+    cartItems : state.carts.data
   }
 }
 

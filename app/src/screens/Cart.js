@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { View, Alert, FlatList } from 'react-native';
-import { Container, Header, Title, Content, List, ListItem, Thumbnail, Text, Left, Body, Right, Button, Footer, FooterTab, Badge, Icon } from 'native-base';
+import { Alert, FlatList } from 'react-native';
+import { View, Container, Header, Title, Content, List, ListItem, Thumbnail, Text, Left, Body, Right, Button, Footer, FooterTab, Badge, Icon, Input, Item } from 'native-base';
 import { connect } from 'react-redux';
+import Prompt from 'dev3s-react-native-prompt';
 
 import { getCarts, patchQty, delCart } from '../publics/redux/actions/carts';
 
@@ -11,7 +12,7 @@ class Cart extends Component<Props> {
 
     static navigationOptions = ({ navigation }) => ({
         header: (
-            <Header androidStatusBarColor='#F44336' style={{backgroundColor: '#F44336'}}>
+            <Header androidStatusBarColor='#D32F2F' style={{backgroundColor: '#F44336'}}>
                 <Left>
                     <Button transparent>
                         <Icon name='arrow-back' onPress={()=> navigation.navigate('Home')}/>
@@ -27,29 +28,37 @@ class Cart extends Component<Props> {
         )
     })
 
+    constructor(props) {
+      super(props);
+    
+      this.state = {
+        promptVisible : false,
+        promptCartId : undefined,
+        promptCartQty : undefined
+      };
+    }
+
     getData = () => {
         this.props.dispatch(getCarts());
     }
 
-    componentDidMount() {
-        this.getData();
-    }
-
     renderItem = ({item, index}) => (
+        
         <ListItem key={index} thumbnail>
             <Left>
                 <Thumbnail square source={{ uri: item.image }} />
             </Left>
             <Body>
-                <Text>{item.title}</Text>
+                <Text style={{fontSize: 14, color: '#212121'}}>{item.title}</Text>
                 <Text note numberOfLines={1}>Rp {this.priceToString(item.price)} <Text note>x {item.qty}</Text></Text>
             </Body>
             <Right>
-                <View style={{flexDirection:'row', flexWrap:'wrap'}}>
+                <View style={{flexDirection:'row'}}>
                     {this.DecreaseButton(item, index)}
+                    <Button small bordered danger onPress={() => this.setState({ promptVisible: true, promptCartId: item.id, promptCartQty: item.qty })}><Text style={{color: '#D32F2F', borderStyle: 'solid' }}>{item.qty}</Text></Button>
                     {this.IncrementButton(item, index)}
                 </View>
-                <Text style={{paddingTop: 5}}>Rp {this.priceToString(this.subTotalPrice(item.price, item.qty))},-</Text>
+                <Text style={{paddingTop: 5, fontSize: 15}}>Rp {this.priceToString(this.subTotalPrice(item.price, item.qty))},-</Text>
             </Right>
         </ListItem>
     )
@@ -79,11 +88,45 @@ class Cart extends Component<Props> {
                     </List>
                 </Content>
                 {(this.props.carts.data.length > 0) && this.buttom()}
+                <Prompt
+                    title="Masukan Qty"
+                    placeholder="Masukan jumlah produk yg diinginkan"
+                    defaultValue={ String(this.state.promptCartQty) }
+                    visible={ this.state.promptVisible }
+                    textInputProps={{keyboardType : 'numeric'}}
+                    onCancel={ () => this.setState({
+                      promptVisible: false
+                    }) }
+                    onSubmit={ async (value) => {
+                        this.setState({promptVisible: false}) ;
+                        if(value === '0') value = '1';
+                        await this.props.dispatch(patchQty(this.state.promptCartId, Number(value)))
+                        this.getData()
+                    }
+                    }
+                />
             </Container>
         )
     }
 
-    
+    qtyDialog(id, qty){
+        return (
+            <Prompt
+                title="Say something"
+                placeholder="Start typing"
+                defaultValue="Hello"
+                visible={ this.state.promptVisible }
+                onCancel={ () => this.setState({
+                  promptVisible: false,
+                  message: "You cancelled"
+                }) }
+                onSubmit={ (value) => this.setState({
+                  promptVisible: false,
+                  message: `You said "${value}"`
+                }) }
+            />
+    )
+    }
 
     buttom(){
         return(
@@ -104,32 +147,32 @@ class Cart extends Component<Props> {
     
     IncrementButton(item, index){
         if(item.qty >= 5){ 
-            return <Button disabled style={{backgroundColor: '#a02c2c'}}><Icon name="add"/></Button> 
+            return <Button small disabled danger><Icon style={{fontSize: 16, color: '#BDBDBD'}} name="add"/></Button> 
         }
         else{ 
-            return <Button style={{backgroundColor: '#FF5252'}} onPress={()=>this.IncrementItem(item)}><Icon name="add"/></Button> 
+            return <Button small danger onPress={()=>this.IncrementItem(item.id, item.qty)}><Icon style={{fontSize: 16}} name="add"/></Button> 
         }
     }
 
     DecreaseButton(item, index){
         if(item.qty === 1){ 
-            return <Button style={{backgroundColor: '#D32F2F'}} onPress={()=>this.dropItemConfirm(item.id, index)}><Icon style={{fontSize: 18}} name="trash" /></Button> 
+            return <Button small danger onPress={()=>this.dropItemConfirm(item.id, index)}><Icon style={{fontSize: 16}} name="trash" /></Button> 
         }
         else{ 
-            return <Button style={{backgroundColor: '#FF5252'}} onPress={()=>this.DecreaseItem(item)}><Icon name="remove"/></Button>
+            return <Button small danger onLongPress={()=>this.dropItemConfirm(item.id, index)} onPress={()=>this.DecreaseItem(item.id, item.qty)}><Icon style={{fontSize: 16}} name="remove"/></Button>
         }
     }
 
-    async IncrementItem(item){
-        const newQty = item.qty + 1
-        await this.props.dispatch(patchQty(item.id, newQty));
+    async IncrementItem(id, qty){
+        const newQty = qty + 1
+        await this.props.dispatch(patchQty(id, newQty));
 
         this.getData()
     } 
 
-    async DecreaseItem(item){
-        const newQty = item.qty - 1
-        await this.props.dispatch(patchQty(item.id, newQty));
+    async DecreaseItem(id, qty){
+        const newQty = qty - 1
+        await this.props.dispatch(patchQty(id, newQty));
 
         this.getData()
     }

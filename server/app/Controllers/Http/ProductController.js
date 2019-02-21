@@ -16,6 +16,10 @@ class ProductController {
 		return product
 	}
 
+	async input({ request }){
+		await Product.create(request.post())
+	}
+
 }
 
 module.exports = ProductController

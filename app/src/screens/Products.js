@@ -1,137 +1,217 @@
 import React, { Component } from 'react';
-import { ScrollView, Platform, StyleSheet, View, FlatList, Image, TouchableNativeFeedback, Dimensions, StatusBar } from 'react-native';
+import { ScrollView, Platform, StyleSheet, FlatList, Image, TouchableWithoutFeedback, Dimensions, StatusBar } from 'react-native';
 import { connect } from 'react-redux';
-import { Container, Content, Left, Body, Right, Card, CardItem, Text, Fab, Icon, Badge, Header,Button, Title, Item, Input, List, ListItem, Thumbnail } from 'native-base';
+import { Container, Content, Left, Body, Right, Card,View, CardItem, Text, Fab, Icon, Badge, Header,Button, Title, Item, Input, List, ListItem, Thumbnail } from 'native-base';
 import ImageSlider from 'react-native-image-slider';
 
 import { getProducts } from '../publics/redux/actions/products';
+import { getCarts } from '../publics/redux/actions/carts';
 
 
 type Props = {};
 class Products extends Component<Props> {
 
-  componentDidMount() {
-    this.getData();
-  }
+	constructor(props) {
+			super(props);
+		
+			this.state = {
+				promptVisible : false,
+			};
+		}
 
-  getData = () => {
-    this.props.dispatch(getProducts());
-  }
-//6 colomn horizontal view (nativebase_)
+	componentDidMount() {
+		this.getData();
+	}
 
-  renderItem = ({ item, index }) => (
-    <TouchableNativeFeedback key={index} onPress={()=> this.props.navigation.navigate('Detail', {pushData : item.id})}>
+	getData = () => {
+		this.props.dispatch(getProducts());
+		this.props.dispatch(getCarts());
+	}
 
-      <Card>
-        <CardItem>
-          <Left>
-            <Image source={{uri: item.image}} style={{height: 190, width: null, flex: 1}}/>
-            </Left>
-            <Body style={{paddingLeft: 10, paddingTop: 10}}>
-              <Text style={{color: '#212121', fontSize: 17, paddingBottom: 5}}>{item.title}</Text>
-              {this.checkDiscount(item)}
-              <Text style={{ fontSize: 18, color : '#E64A19'}}>Rp {this.priceToString(item.price)},-</Text>
-              <View style={{flexDirection:'row', flexWrap:'wrap', paddingTop: 10}}>
-                <Icon type="Entypo" name="shop" style={{fontSize: 18, paddingRight: 5, paddingTop: 2, color: '#757575'}} />
-                <Text style={{color: '#757575'}}>{item.seller}</Text>
-              </View>
-            </Body>
-          </CardItem>
-        </Card>
-    </TouchableNativeFeedback>
-  )
+	renderItem = ({ item, index }) => (
+		<TouchableWithoutFeedback key={index} onPress={()=> this.props.navigation.navigate('Detail', {pushData : item.id})}>
+			<View style={styles.gridContainer}>
+				<Image source={{uri: item.image}} style={{height: 190, flex: 1}}/>
+				<View style={{paddingHorizontal: 20}}>
+					<Text style={styles.titleGrid}>{item.title}</Text>
+					<Text style={{color: '#E64A19', fontWeight: '300'}}>Rp <Text style={styles.priceGrid}>{this.priceToString(item.price)}</Text></Text>
+					{this.checkDiscount(item)}
+				</View>
+			</View>
+		</TouchableWithoutFeedback>
+	)
 
-  _keyExtractor = (item, index) => item.id.toString();
+	_keyExtractor = (item, index) => item.id.toString();
 
-  render() {
-    const images = [
-      'http://img20.jd.id/Indonesia/s682x482_/nHBfsgAAeAAAAB0AFeRQWAAErt8.png',
-      'http://img20.jd.id/Indonesia/s682x482_/nHBfsgAAYwAAAAcAKLOASAAFe5s.png',
-      'http://img20.jd.id/Indonesia/s682x482_/nHBfsgAAwgAAAAYAIcm5OwAC0lA.png'
-    ]
-    return (
-      <Container>
-        <Header searchBar rounded style={{backgroundColor: '#F44336'}} androidStatusBarColor='#F44336'>        
-          <Left>
-          <Button transparent>
-            <Icon name="qr-scanner"/>
-          </Button>
-          </Left>
-          <Item>
-            <Input placeholder="Search" />
-            <Icon name="ios-search" />
-          </Item>
-          <Right>
-          <Button transparent onPress={() => this.props.navigation.navigate('Test') }>
-            <Icon type="MaterialIcons" name="loyalty"/>
-          </Button>
-          <Button transparent onPress={() => this.props.navigation.navigate('Carts') }>
-            <Icon name="cart"/>
-          </Button>
-          <Button transparent>
-            <Icon name="person"/>
-          </Button>
-          </Right>
-        </Header>
-        <ScrollView>
-        <ImageSlider style={{height: 255, width: Dimensions.get('window').widht, flex : 0}} 
-            autoPlayWithInterval={4000}
-            images={images}
-        />
-        <View style={{flexDirection: 'row', marginVertical: 20}}>
-          
-          <View style={{flex: 3,alignItems: 'center'}}>
-            <Thumbnail square source={require('../images/pulsa.png')}/>
-            <Text>Topup Pulsa</Text>
-          </View>
+	render() {
+		const images = [
+			'http://img20.jd.id/Indonesia/s682x482_/nHBfsgAAeAAAAB0AFeRQWAAErt8.png',
+			'http://img20.jd.id/Indonesia/s682x482_/nHBfsgAAYwAAAAcAKLOASAAFe5s.png',
+			'http://img20.jd.id/Indonesia/s682x482_/nHBfsgAAwgAAAAYAIcm5OwAC0lA.png'
+		]
 
-          <View style={{flex: 3, alignItems: 'center'}}>
-            <Thumbnail square source={require('../images/pln.png')}/>
-            <Text>Token Listrik</Text>
-          </View>
+		return (
+			<Container>
+				<Header searchBar rounded style={{backgroundColor: '#F44336'}} androidStatusBarColor='#F44336'>        
+                    <Left>
+                        <Button transparent>
+                            <Icon name="qr-scanner"/>
+                        </Button>
+                    </Left>
+                    <Item>
+                        <Input placeholder="Search" />
+                        <Icon name="ios-search" />
+                    </Item>
+                    <Right>
+                        {this.cartBadge()}
+                        <Button transparent onPress={() => this.props.navigation.navigate('Favorite')}>
+                            <Icon name="heart"/>
+                        </Button>
+                        <Button transparent onPress={() => this.props.navigation.navigate('Profile')}>
+                            <Icon name="person"/>
+                        </Button>
+                    </Right>
+                </Header>
 
-          <View style={{flex: 3, alignItems: 'center'}}>
-            <Thumbnail square source={require('../images/pesawat.png')}/>
-            <Text>Travel</Text>
-          </View>
-          
-        </View>
+				<ScrollView style={{backgroundColor: '#f9f9f9'}}>
+					<ImageSlider style={{height: 255, width: Dimensions.get('window').widht, flex : 0}} autoPlayWithInterval={4000} images={images} />
 
-          <FlatList
-            data={this.props.products.data}
-            keyExtractor={this._keyExtractor}
-            renderItem={this.renderItem}
-            refreshing={this.props.products.isLoading}
-            onRefresh={this.getData}
-          />
-          </ScrollView>
-      </Container>
-    );
-  }
+					<View style={styles.featureIconContainer}>
+						<View style={styles.featureIconRows}>
+							<Thumbnail square source={require('../images/topup.png')} style={styles.featureIcons}/>
+							<Text style={styles.featureIconText}>Topup Pulsa</Text>
+						</View>
 
-  checkDiscount(item){
-        if(item.oldPrice){
-            return (
-                <View style={{flexDirection:'column', flexWrap:'wrap', textAlign: 'right'}}>
-                    <Badge warning><Text style={{ fontSize: 13, paddingTop: 2, paddingLeft: 2 }}>Diskon {item.discount}%</Text></Badge>
-                    <Text style={{ color: '#9b9b9b', fontSize: 15, paddingTop: 2, textDecorationLine: 'line-through', paddingLeft: 5 }}>Rp {this.priceToString(item.oldPrice)},-</Text>
-                </View>
-            )
+						<View style={styles.featureIconRows}>
+							<Thumbnail square source={require('../images/token.png')} style={styles.featureIcons}/>
+							<Text style={styles.featureIconText}>Token Listrik</Text>
+						</View>
+
+						<View style={styles.featureIconRows}>
+							<Thumbnail square source={require('../images/travel.png')} style={styles.featureIcons}/>
+							<Text style={styles.featureIconText}>Travel</Text>
+						</View>
+						
+						<View style={styles.featureIconRows}>
+							<Thumbnail square source={require('../images/furniture.png')} style={styles.featureIcons}/>
+							<Text style={styles.featureIconText}>Furniture</Text>
+						</View>
+						
+						<View style={styles.featureIconRows}>
+							<Thumbnail square source={require('../images/fashion.png')} style={styles.featureIcons}/>
+							<Text style={styles.featureIconText}>Fashion</Text>
+						</View>
+						
+					</View>
+					<FlatList
+						data={this.props.products.data}
+						keyExtractor={this._keyExtractor}
+						renderItem={this.renderItem}
+						refreshing={this.props.products.isLoading}
+						onRefresh={this.getData}
+						numColumns={2}
+					/>
+				</ScrollView>
+			</Container>
+		);
+	}
+
+	checkDiscount(item){
+		if(item.oldPrice){
+			return (
+				<View style={{flexDirection:'row', flexWrap:'wrap', textAlign: 'right'}}>
+					<Text style={styles.oldPriceGrid}>Rp {this.priceToString(item.oldPrice)},-</Text>
+					<Text style={styles.discountGrid}>-{item.discount}%</Text>
+				</View>
+			)
+		}
+	}
+
+	priceToString(value){
+		stringPrice = value.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.")
+		return stringPrice
+	}
+
+	cartBadge(){
+		const data = this.props.carts
+		let qtys = data.reduce(function(prev, cur) {
+          return prev + cur.qty;
+        }, 0);
+        if(qtys > 0){ 
+        	return (
+	        	<Button badge transparent onPress={() => this.props.navigation.navigate('Carts') }>
+	            	<Badge warning><Text style={{fontSize: 14}}>{qtys}</Text></Badge>
+	                <Icon name="cart"/>
+	            </Button>
+        	)
+        }else{
+        	return(
+				<Button transparent onPress={() => this.props.navigation.navigate('Carts') }>
+	                <Icon name="cart"/>
+	            </Button>
+        	)
         }
-    }
-
-    priceToString(value){
-    stringPrice = value.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.")
-    return stringPrice
-  }
+	}
 
 }
 
 const mapStateToProps = (state) => {
-  return {
-    products: state.products
-  }
+	return {
+		products: state.products,
+		carts : state.carts.data
+	}
 }
 
 export default connect(mapStateToProps)(Products)
 
+const styles = StyleSheet.create({
+	gridContainer : {
+		borderWidth: 0.1,
+		borderRadius: 5,
+		borderColor: '#BDBDBD',
+		flex: 1, 
+		flexDirection: 'column', 
+		margin: 3, 
+		paddingHorizontal: 10,
+		paddingVertical: 10,
+		backgroundColor: '#fff'
+	},
+	titleGrid : {
+		color: '#212121', 
+		fontSize: 15, 
+		paddingBottom: 5
+	},
+	priceGrid : {
+		color: '#E64A19', 
+		fontSize: 16, 
+		fontWeight: 'bold',  
+		paddingBottom: 5
+	},
+	discountGrid : {
+		color: '#757575',
+		fontSize: 12, 
+		paddingLeft: 5
+	},
+	oldPriceGrid : {
+		color: '#9b9b9b', 
+		fontSize: 13, 
+		textDecorationLine: 'line-through'
+	},
+	featureIconContainer: {
+		flexDirection: 'row', 
+		marginVertical: 20
+	},
+	featureIconRows : {
+		flex: 3,
+		alignItems: 'center'
+	},
+	featureIcons : {
+		width: 50,
+		height: 50
+	},
+	featureIconText : {
+		fontSize: 10,
+		paddingTop: 5
+	}
+
+})

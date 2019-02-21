@@ -8,6 +8,8 @@ const Route = use('Route')
 //Product Routes
 Route.get('api/v1/products', 'ProductController.index')
 Route.get('api/v1/product/:id', 'ProductController.byId')
+Route.post('api/v1/product', 'ProductController.input')
+
 
 //Cart Routes
 Route.get('api/v1/orders', 'CartController.index')
