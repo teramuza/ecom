@@ -4,20 +4,27 @@
 const Route = use('Route')
 // Route.get('/', 'ProductController.index')
 
+Route.group(() => {
 
-//Product Routes
-Route.get('api/v1/products', 'ProductController.index')
-Route.get('api/v1/product/:id', 'ProductController.byId')
-Route.post('api/v1/product', 'ProductController.input')
+	//Product Routes
+	Route.get('products', 'ProductController.index')
+	Route.get('product/:id', 'ProductController.byId')
+	Route.post('product', 'ProductController.input')
 
 
-//Cart Routes
-Route.get('api/v1/orders', 'CartController.index')
-Route.get('api/v1/orders/count','CartController.countRow')
-Route.get('api/v1/order/:id', 'CartController.byId')
-Route.post('api/v1/order', 'CartController.input')
-Route.patch('api/v1/order/:id/:qty', 'CartController.qtyCtrl')
-Route.delete('api/v1/order/:id', 'CartController.delete')
+	//Cart Routes
+	Route.get('orders', 'CartController.index')
+	Route.get('orders/count','CartController.countRow')
+	Route.get('order/:id', 'CartController.byId')
+	Route.post('order', 'CartController.input')
+	Route.patch('order/:id/:qty', 'CartController.qtyCtrl')
+	Route.delete('order/:id', 'CartController.delete')
 
-//costom (Count order)
-Route.get('api/v1/cartBy/:key/:val', 'CartController.byKey')
+	//costom (Count order)
+	Route.get('cartBy/:key/:val', 'CartController.byKey')
+
+	//auth
+	Route.post('auth/register', 'AuthController.register')
+	Route.post('auth/login', 'AuthController.login')
+
+}).prefix('api/v1')

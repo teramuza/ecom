@@ -56,7 +56,7 @@ class Products extends Component<Props> {
 	render() {
 		return (
 			<Container>
-				<Header searchBar rounded style={{backgroundColor: '#F44336'}} androidStatusBarColor='#F44336'>        
+				<Header style={{backgroundColor: '#F44336'}} androidStatusBarColor='#F44336'>        
                     <Left>
                         <Button transparent onPress={() => this.props.navigation.navigate('Home')}>
                             <Icon name="arrow-back"/>

@@ -54,11 +54,11 @@ class Products extends Component<Props> {
 			<Container>
 				<Header searchBar rounded style={{backgroundColor: '#F44336'}} androidStatusBarColor='#F44336'>        
                     <Left>
-                        <Button transparent>
+                        <Button transparent onPress={() => this.props.navigation.navigate('Login')}>
                             <Icon name="qr-scanner"/>
                         </Button>
                     </Left>
-                    <Item>
+                    <Item rounded>
                         <Input placeholder="Search" />
                         <Icon name="ios-search" />
                     </Item>
@@ -78,27 +78,27 @@ class Products extends Component<Props> {
 
 					<View style={styles.featureIconContainer}>
 						<View style={styles.featureIconRows}>
-							<Thumbnail square source={require('../images/topup.png')} style={styles.featureIcons}/>
+							<Thumbnail avatar source={require('../images/topup.png')} style={styles.featureIcons}/>
 							<Text style={styles.featureIconText}>Topup Pulsa</Text>
 						</View>
 
 						<View style={styles.featureIconRows}>
-							<Thumbnail square source={require('../images/token.png')} style={styles.featureIcons}/>
+							<Thumbnail avatar source={require('../images/token.png')} style={styles.featureIcons}/>
 							<Text style={styles.featureIconText}>Token Listrik</Text>
 						</View>
 
 						<View style={styles.featureIconRows}>
-							<Thumbnail square source={require('../images/travel.png')} style={styles.featureIcons}/>
+							<Thumbnail avatar source={require('../images/travel.png')} style={styles.featureIcons}/>
 							<Text style={styles.featureIconText}>Travel</Text>
 						</View>
 						
 						<View style={styles.featureIconRows}>
-							<Thumbnail square source={require('../images/furniture.png')} style={styles.featureIcons}/>
+							<Thumbnail avatar source={require('../images/furniture.png')} style={styles.featureIcons}/>
 							<Text style={styles.featureIconText}>Furniture</Text>
 						</View>
 						
 						<View style={styles.featureIconRows}>
-							<Thumbnail square source={require('../images/fashion.png')} style={styles.featureIcons}/>
+							<Thumbnail avatar source={require('../images/fashion.png')} style={styles.featureIcons}/>
 							<Text style={styles.featureIconText}>Fashion</Text>
 						</View>
 						

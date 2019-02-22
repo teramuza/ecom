@@ -8,8 +8,9 @@ import store from './src/publics/redux/store';
 import Products from './src/screens/Products';
 import ProductDetail from './src/screens/productDetail';
 import Cart from './src/screens/Cart';
-import Profile from './src/screens/Profile';
 import Favorite from './src/screens/Favorite';
+import Login from './src/screens/Login'
+import Profile from './src/screens/Profile';
 
 const AppNavigator = createStackNavigator({
 
@@ -20,6 +21,7 @@ const AppNavigator = createStackNavigator({
                 header : null
             }
         },
+
         Detail : {
             screen: ProductDetail,
             navigationOptions:{
@@ -27,8 +29,17 @@ const AppNavigator = createStackNavigator({
                 tintColor: '#fff'
             }
         },
+
         Carts : {
             screen: Cart
+        },
+
+        Favorite : {
+            screen : Favorite
+        },
+
+        Login : {
+            screen : Login
         },
         Profile : {
             screen : Profile,
@@ -36,9 +47,6 @@ const AppNavigator = createStackNavigator({
                 header : null
             }
         },
-        Favorite : {
-            screen : Favorite
-        }
     })
 
 const AppRoot = createAppContainer(AppNavigator);
