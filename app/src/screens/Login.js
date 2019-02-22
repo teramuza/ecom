@@ -60,7 +60,22 @@ export default class Login extends Component {
 								<Text style={{color: '#2196F3', fontSize: 13}}>Lupa Password</Text>
 							</Right>
 						</View>
-						
+						<View style={{marginTop: 30 ,paddingTop : 40, paddingHorizontal: 20, height: 50}}>
+							<View style={{borderBottomWidth: 1, borderBottomColor: '#e2e2e2'}}/>
+							<Text style={{position: 'absolute', zIndex: 1, top: 28, left: 138, backgroundColor: '#fff', color: '#aaa', paddingHorizontal: 8, fontSize: 15 }}>Masuk dengan</Text>
+						</View>
+						<View style={{flexDirection: 'row', paddingTop: 30, paddingHorizontal: 30, flex: 1}} >
+							<View style={{flex : 3, paddingHorizontal: 30}}>
+								<Thumbnail style={{width: 40, height: 40}} avatar source={require('../images/fb.png')}/>
+							</View>
+							<View style={{flex : 3, paddingHorizontal: 30}}>
+								<Thumbnail style={{width: 40, height: 40}}  avatar source={require('../images/google.png')}/>
+							</View>
+							<View style={{flex : 3, paddingHorizontal: 30}}>
+								<Thumbnail style={{width: 40, height: 40}}  avatar source={require('../images/line.png')}/>
+							</View>
+
+						</View>
 			        </View>
 				</Content>
 			</Container>
