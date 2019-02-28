@@ -3,7 +3,7 @@ import { Alert, AsyncStorage } from 'react-native';
 import { Container, Header, Content, Form, Item, Input, Label, Thumbnail,View, Left, Right, Button,Icon, Text } from 'native-base';
 import { connect } from 'react-redux';
 
-import { login } from '../publics/redux/actions/auth'
+import { register } from '../publics/redux/actions/auth'
 
 class Login extends Component {
 
@@ -16,7 +16,7 @@ class Login extends Component {
 		          	</Button>
 				</Left>
 				<Right>
-					<Text style={{color: '#fff', fontSize: 18}} onPress={()=> navigation.navigate('Register')} >Daftar</Text>
+					<Text style={{color: '#fff', fontSize: 18}} onPress={() => navigation.navigate('Login')}>Login</Text>
 				</Right>
 		        
 			</Header>
@@ -27,15 +27,14 @@ class Login extends Component {
 		super(props);
 		
 		this.state = {
-			emailInput : '',
-			passwordInput : '',
-			nextScreen : 'Home',
+			username : '',
+			email : '',
+			name : '',
+			avatar : '',
+			phone : '',
+			password : '',
+			nextScreen : 'Login',
 		};
-	}
-
-	componentDidMount(){
-		nextScreen = this.props.navigation.state.params.nextScreen
-		this.setState({nextScreen})
 	}
 
 	render() {
@@ -47,13 +46,33 @@ class Login extends Component {
 					</View>
 					<Form>
 						<Item stackedLabel>
+							<Label style={{color: '#212121'}}>Nama Pengguna</Label>
+							<Input onChangeText={(username) => this.setState({username})} placeholder="Silahkan masukkan Nama Pengguna anda" style={{fontSize: 13}} placeholderTextColor="#BDBDBD" autoFocus={true}/>
+						</Item>
+
+						<Item stackedLabel>
 							<Label style={{color: '#212121'}}>Email</Label>
-							<Input onChangeText={(emailInput) => this.setState({emailInput})} placeholder="Silahkan masukkan email anda" style={{fontSize: 13}} placeholderTextColor="#BDBDBD" autoFocus={true} keyboardType="email-address"/>
+							<Input onChangeText={(email) => this.setState({email})} placeholder="Silahkan masukkan Email anda" style={{fontSize: 13}} placeholderTextColor="#BDBDBD" autoFocus={true} keyboardType="email-address"/>
+						</Item>
+
+						<Item stackedLabel>
+							<Label style={{color: '#212121'}}>Nama Lengkap</Label>
+							<Input onChangeText={(name) => this.setState({name})} placeholder="Silahkan masukkan Nama Lengkap anda" style={{fontSize: 13}} placeholderTextColor="#BDBDBD" autoFocus={true}/>
+						</Item>
+
+						<Item stackedLabel>
+							<Label style={{color: '#212121'}}>Foto profil (url)</Label>
+							<Input onChangeText={(avatar) => this.setState({avatar})} placeholder="Silahkan masukkan Url Foto anda" style={{fontSize: 13}} placeholderTextColor="#BDBDBD" autoFocus={true}/>
+						</Item>
+
+						<Item stackedLabel>
+							<Label style={{color: '#212121'}}>Phone Number</Label>
+							<Input onChangeText={(phone) => this.setState({phone})} placeholder="Silahkan masukkan Nomor Telp anda" style={{fontSize: 13}} placeholderTextColor="#BDBDBD" autoFocus={true} keyboardType="phone-pad"/>
 						</Item>
 
 						<Item stackedLabel>
 							<Label style={{color: '#212121'}}>Password</Label>
-							<Input onChangeText={(passwordInput) => this.setState({passwordInput})} secureTextEntry={true} placeholder="Silahkan masukan password anda" placeholderTextColor="#BDBDBD"/>
+							<Input onChangeText={(password) => this.setState({password})} secureTextEntry={true} placeholder="Silahkan masukan password anda" placeholderTextColor="#BDBDBD"/>
 						</Item>
 					</Form>
 
@@ -94,38 +113,49 @@ class Login extends Component {
 		if(this.state.emailInput === '' || this.state.passwordInput === ''){
 			return(	
 				<Button disabled style={{borderRadius: 25, backgroundColor: '#FFCDD2'}} block>
-					<Text>Masuk</Text>
+					<Text>Daftar</Text>
 				</Button>
 			)
 		}else{
 			return(
-				<Button style={{borderRadius: 25, backgroundColor: '#f95454'}} block onPress={() => this.handleLogin()}>
-					<Text>Masuk</Text>
+				<Button style={{borderRadius: 25, backgroundColor: '#f95454'}} block onPress={() => this.handleRegist()}>
+					<Text>Daftar</Text>
 				</Button>
 			)
 		}
 	}
 
-	async handleLogin(){
-		await this.props.dispatch(login({
-			email : this.state.emailInput,
-			password : this.state.passwordInput
+	async handleRegist(){
+		try{
+		await this.props.dispatch(register({
+			username : this.state.username,
+			email : this.state.email,
+			password : this.state.password,
+			name : this.state.name,
+			avatar : this.state.avatar,
+			phone : this.state.phone
 		}));
 		const loginInfo = this.props.auth.data
 		if(loginInfo.token){
 
 			await AsyncStorage.setItem('userId', String(loginInfo.userId));
 			await AsyncStorage.setItem('token', loginInfo.token);
-			await AsyncStorage.setItem('refreshToken', loginInfo.refreshToken)
+			await AsyncStorage.setItem('refreshToken', loginInfo.refreshToken);
 			
-			this.props.navigation.navigate(this.state.nextScreen)
+			this.props.navigation.navigate('Home')
 		}
-		else if(loginInfo.message){
+		else if(loginInfo.status === 'registered'){
+			Alert.alert("Ups", loginInfo.message)
+		}
+		else if(loginInfo.status === 'error'){
 			Alert.alert("Ups", loginInfo.message)
 		}
 		else{
 			Alert.alert("Error", "Terjadi suatu kesalahan, harap coba lagi nanti.")
 		}
+	}catch(e){
+		console.warn(e.response);
+	}
 	}
 	
 }

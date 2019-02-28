@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
-import { ScrollView, Platform, StyleSheet, FlatList, Image, TouchableWithoutFeedback, Dimensions, StatusBar } from 'react-native';
+import { ScrollView, Platform, StyleSheet, FlatList, Image, TouchableWithoutFeedback, Dimensions, StatusBar, AsyncStorage, Alert } from 'react-native';
 import { connect } from 'react-redux';
 import { Container, Content, Left, Body, Right, Card,View, CardItem, Text, Fab, Icon, Badge, Header,Button, Title, Item, Input, List, ListItem, Thumbnail } from 'native-base';
 
-import { getProducts } from '../publics/redux/actions/products';
+import { getProfile } from '../publics/redux/actions/user';
+import { logout } from '../publics/redux/actions/auth'
 
 
 type Props = {};
 class Products extends Component<Props> {
-
-	getData = () => {
-		this.props.dispatch(getProducts());
-	}
 
 	renderItem = ({ item, index }) => (
 		<TouchableWithoutFeedback key={index} onPress={()=> this.props.navigation.navigate('Detail', {pushData : item.id})}>
@@ -54,6 +51,7 @@ class Products extends Component<Props> {
 	_keyExtractor = (item, index) => item.id.toString();
 
 	render() {
+		userData = this.props.user.data
 		return (
 			<Container>
 				<Header style={{backgroundColor: '#F44336'}} androidStatusBarColor='#F44336'>        
@@ -65,8 +63,8 @@ class Products extends Component<Props> {
                     
                     <Right>
                         {this.cartBadge()}
-                        <Button transparent>
-                            <Icon name="cog"/>
+                        <Button transparent onPress={ async () => this.confirmLogout() }>
+                            <Icon name="log-out"/>
                         </Button>
                     </Right>
                 </Header>
@@ -74,10 +72,10 @@ class Products extends Component<Props> {
 				<ScrollView style={{backgroundColor: '#f9f9f9'}}>
 					<View style={styles.profilStat}>
 						<View style={styles.profilInfo}>
-							<Thumbnail avatar source={{uri : 'https://teramuza.xyz/assets/about/img/profile.jpg'}} />
+							<Thumbnail avatar source={{uri : userData.avatar}} />
 
 							<View style={styles.profilName}>
-								<Text style={styles.profilNameText}>Teuku Raja</Text>
+								<Text style={styles.profilNameText}>{userData.name}</Text>
 								<Icon type="MaterialIcons" name="keyboard-arrow-right" style={{color: '#fff'}}/>
 							</View>
 						</View>
@@ -94,7 +92,7 @@ class Products extends Component<Props> {
 							</View>
 
 							<View style={styles.profilSummary}>
-								<Text style={styles.profilSummaryUp}>10</Text>
+								<Text style={styles.profilSummaryUp}>{userData.terapoint}</Text>
 								<Text style={styles.profilSummaryDown}>TeraPoin</Text>
 							</View>
 
@@ -203,13 +201,34 @@ class Products extends Component<Props> {
         	)
         }
 	}
+	confirmLogout(){
+		Alert.alert(
+            'Logout',
+            'Apa anda yakin ingin Logout?',
+            [
+                {text: 'Tidak'},
+                {text: 'Ya', onPress: async () => {
+                    const token = await AsyncStorage.getItem('token')
+					const refreshToken = await AsyncStorage.getItem('refreshToken')
+                    
+                    await this.props.dispatch(logout(token, refreshToken))
+	                await AsyncStorage.removeItem('token')
+	                await AsyncStorage.removeItem('userId')
+	               	await AsyncStorage.removeItem('refreshToken')
+	                this.props.navigation.navigate('Home')	  
+                }
+                },
+            ]
+        )
+	}
 
 }
 
 const mapStateToProps = (state) => {
 	return {
 		products: state.products,
-		carts : state.carts.data
+		carts : state.carts.data,
+		user : state.user
 	}
 }
 

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { ScrollView, Platform, StyleSheet, FlatList, Image, TouchableWithoutFeedback, Dimensions, StatusBar } from 'react-native';
+import { ScrollView, Platform, StyleSheet, FlatList, Image, TouchableWithoutFeedback, Dimensions, StatusBar, AsyncStorage } from 'react-native';
 import { connect } from 'react-redux';
 import { Container, Content, Left, Body, Right, Card,View, CardItem, Text, Fab, Icon, Badge, Header,Button, Title, Item, Input, List, ListItem, Thumbnail } from 'native-base';
 import ImageSlider from 'react-native-image-slider';
 
 import { getProducts } from '../publics/redux/actions/products';
 import { getCarts } from '../publics/redux/actions/carts';
+import { getProfile } from '../publics/redux/actions/user';
 
 
 type Props = {};
@@ -19,7 +20,7 @@ class Products extends Component<Props> {
 			};
 		}
 
-	componentDidMount() {
+	async componentDidMount() {
 		this.getData();
 	}
 
@@ -54,7 +55,7 @@ class Products extends Component<Props> {
 			<Container>
 				<Header searchBar rounded style={{backgroundColor: '#F44336'}} androidStatusBarColor='#F44336'>        
                     <Left>
-                        <Button transparent onPress={() => this.props.navigation.navigate('Login')}>
+                        <Button transparent>
                             <Icon name="qr-scanner"/>
                         </Button>
                     </Left>
@@ -67,7 +68,7 @@ class Products extends Component<Props> {
                         <Button transparent onPress={() => this.props.navigation.navigate('Favorite')}>
                             <Icon name="heart"/>
                         </Button>
-                        <Button transparent onPress={() => this.props.navigation.navigate('Profile')}>
+                        <Button transparent onPress={() => this.toProfile()}>
                             <Icon name="person"/>
                         </Button>
                     </Right>
@@ -102,6 +103,9 @@ class Products extends Component<Props> {
 							<Text style={styles.featureIconText}>Fashion</Text>
 						</View>
 						
+					</View>
+					<View style={{paddingLeft: 12, paddingTop: 10}}>
+						<Text style={{fontSize: 18, fontWeight: '600', paddingBottom: 10, paddingLeft: 10, color: '#212121' }}>Pilihan terbaik</Text>
 					</View>
 					<FlatList
 						data={this.props.products.data}
@@ -151,6 +155,18 @@ class Products extends Component<Props> {
 	            </Button>
         	)
         }
+	}
+
+	async toProfile(){
+		const userId = await AsyncStorage.getItem('userId')
+		const token = await AsyncStorage.getItem('token')
+
+		try{
+			await this.props.dispatch(getProfile(userId, token))
+			this.props.navigation.navigate('Profile')
+		}catch{
+			this.props.navigation.navigate('Login', {nextScreen : 'Profile'})
+		}
 	}
 
 }

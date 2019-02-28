@@ -1,20 +1,28 @@
 import React, { Component } from 'react'
-import { View } from 'react-native'
-import { Container, Content, Card, CardItem, List, ListItem, Form, Text, Item, Input, Label, Icon, Picker, Left, Right, Thumbnail, Body, H3 } from 'native-base';
-import axios from 'axios'
-
-import '../cfg'
+import { View, FlatList } from 'react-native'
+import { Header, Button, Title, Container, Content, Card, CardItem, List, ListItem, Form, Text, Item, Input, Label, Icon, Picker, Left, Right, Thumbnail, Body, H3, Footer, FooterTab } from 'native-base';
+import { connect } from 'react-redux';
 
 
-export default class Payment extends Component {
+class Payment extends Component {
 
-    static navigationOptions = {
-        title: 'Pembayaran',
-        headerStyle: {
-            backgroundColor: '#607D8B',
-        },
-        headerTintColor: '#fff',
-    }
+    static navigationOptions = ({ navigation }) => ({
+        header: (
+            <Header androidStatusBarColor='#D32F2F' style={{backgroundColor: '#F44336'}}>
+                <Left>
+                    <Button transparent onPress={()=> navigation.navigate('Carts')}>
+                        <Icon name='arrow-back'/>
+                    </Button>
+                </Left>
+                <Body>
+                    <Title>Checkout</Title>
+                </Body>
+                <Right>
+                    
+                </Right>
+            </Header>
+        )
+    })
 
     constructor(props) {
         super(props)
@@ -26,18 +34,6 @@ export default class Payment extends Component {
         };
     }
 
-    fetchData(){
-        axios.get(`${apiUrl}/orders`)
-        .then(res => {  
-            data = res.data
-            this.setState({ cartItems : data })
-        })
-
-    }
-    componentWillMount(){
-        this.fetchData()
-    }
-    
 
     onPayMethod(value: string) {
         this.setState({
@@ -115,7 +111,11 @@ export default class Payment extends Component {
                         </Item>
                     </Form>
                     <List>
-                        {this.state.cartItems.map((item, index) => this.listItem(item, index))}
+                        <FlatList
+                        data={this.props.carts.data}
+                        keyExtractor={this._keyExtractor}
+                        renderItem={this.renderItem}
+                        />
                     </List>
                     <Card>
                         <CardItem>
@@ -148,40 +148,43 @@ export default class Payment extends Component {
                                 </Right>
                             </View>
                         </CardItem>
-                        {(this.state.ongkir > 0) &&
-                        <CardItem style={{backgroundColor: '#009688', color: '#fff'}}>
-                            <View style={{flexDirection:'row', flexWrap:'wrap', paddingBottom: 12, paddingTop: 8}}>
-                                <Left>
-                                    <Text style={{color: '#fff', fontSize: 18}}>Total Semua</Text>
-                                </Left>
-                                <Right>
-                                    <Text style={{color: '#fff', paddingRight: 15, fontSize: 20}}>Rp {this.totalPayment()},-</Text>
-                                </Right>
-                            </View>
-                        </CardItem>
-                    }
+                        
                     </Card>       
                 </Content>
+                {(this.state.ongkir > 0) &&
+                        <Footer>
+                            <FooterTab style={{backgroundColor: '#f7f7f7', color: '#fff', paddingRight: 8, paddingLeft: 5}}>
+                                <Button disabled style={{backgroundColor: '#f7f7f7', flex : 5}}>
+                                    <Text style={{color: '#757575', paddingBottom: 5}}>Total</Text>
+                                    <Text style={{color: '#757575', fontSize: 15}}>Rp {this.totalPayment()},-</Text>
+                                </Button>
+                                <Button active rounded style={{backgroundColor: '#FF5252', flex : 4, flexDirection: 'row'}} onPress={() => this.props.navigation.navigate('Success', {pushData : this.totalPayment()})} >
+                                    <Text style={{fontSize: 16, paddingTop: 3}}>Checkout</Text>
+                                    <Icon name="arrow-dropright" style={{paddingLeft: -10}}/>
+                                </Button>
+                            </FooterTab>
+                        </Footer>
+                    }
             </Container>
         )
     }
 
-    listItem(item, index){
-        return (
-            <ListItem key={item.id} thumbnail>
-                <Left>
-                    <Thumbnail square source={{ uri: item.image }} />
-                </Left>
-                <Body>
-                    <Text>{item.title}</Text>
-                    <Text note numberOfLines={1}>Rp {this.priceToString(item.price)} <Text note>x {item.qty}</Text></Text>
-                </Body>
-                <Right>
-                    <Text style={{paddingTop: 5}}>Rp {this.priceToString(this.subTotalPrice(item.price,item.qty))},-</Text>
-                </Right>
-            </ListItem>
-        )
-    }
+    renderItem = ({item, index}) => (
+        <ListItem key={index} thumbnail>
+            <Left>
+                <Thumbnail square source={{ uri: item.image }} />
+            </Left>
+            <Body>
+                <Text>{item.title}</Text>
+                <Text note numberOfLines={1}>Rp {this.priceToString(item.price)} <Text note>x {item.qty}</Text></Text>
+            </Body>
+            <Right>
+                <Text style={{paddingTop: 5}}>Rp {this.priceToString(this.subTotalPrice(item.price,item.qty))},-</Text>
+            </Right>
+        </ListItem>
+    )
+
+    _keyExtractor = (item, index) => item.id.toString();
     
     priceToString(value){
         stringPrice = value.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.")
@@ -194,7 +197,7 @@ export default class Payment extends Component {
     }
 
     totalPrice(){
-        let prcTotal = this.state.cartItems.reduce(function(prev, cur) {
+        let prcTotal = this.props.carts.data.reduce(function(prev, cur) {
           return prev + (cur.price * cur.qty);
         }, 0);
 
@@ -204,9 +207,19 @@ export default class Payment extends Component {
     totalPayment(){
         totalProd = this.totalPrice()
         ongkir = this.state.ongkir
-        countItems = this.state.cartItems.length
+        countItems = this.props.carts.data.length
         newTotal = (ongkir * countItems) + totalProd
 
         return this.priceToString(newTotal)
     }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    carts: state.carts,
+    user: state.user
+  }
+}
+
+export default connect(mapStateToProps)(Payment)
+

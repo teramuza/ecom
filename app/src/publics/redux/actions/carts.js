@@ -29,3 +29,18 @@ export const delCart = (id) => {
 		payload : axios.delete(`${apiUrl}/order/${id}`)
 	}
 }
+
+export const toPayment = (token) => {
+	return {
+		type : 'PAYMENT',
+		payload : axios.get(`${apiUrl}/payment`, 
+			{ headers : { Authorization : `Bearer ${token}`} })
+	}
+}
+
+export const truncate = (token) => {
+	return {
+		type : 'TRUNCATE',
+		payload : axios.delete(`${apiUrl}/orders`)
+	}
+}

@@ -48,6 +48,11 @@ class CartController {
 		
 		await cart.delete()
 	}
+
+	async dropAll(){
+		const carts = await Cart.truncate()
+		return carts
+	}
 }
 
 module.exports = CartController

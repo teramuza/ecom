@@ -2,19 +2,60 @@
 
 const User = use('App/Models/User');
 const Token = use('App/Models/Token');
+const Customer = use('App/Models/Customer');
+const Database = use('Database')
 
 class AuthController {
 
-      async register({request, auth, response}) {
+    async register({request}){
+      await User.create(request.all())
+    }
 
-        let user = await User.create(request.all())
+      // async register({request, auth, response}) {
+      
+      // const trx = await Database.beginTransaction()
 
-        //generate token for user;
-        let token = await auth.generate(user)
+      //   let { username, email, password } = request.post()
+      //   let { name, avatar, phone } = request.post()
 
-        Object.assign(user, token)
+      //   let checkRow = await User.findBy('email', email)
 
-        return response.json(user)
+      //   if(checkRow){
+      //     return response.json({message: 'Email sudah terdaftar', status : 'registered'})
+
+      //   }else{
+
+      //     let user = await User.create({username,email,password})
+      //     if(user){
+            
+      //       let userRole = await User.findBy('email', email)
+            
+      //       await Customer.create({ user_id : userRole.id, name, avatar, phone })
+
+      //       try {
+      //         let check = await auth
+      //           .authenticator('jwt')
+      //           .withRefreshToken()
+      //           .attempt(email,password)
+
+      //         if (check) {
+      //             Object.assign(userRole, check)
+
+      //             return response.json(userRole)
+      //           }
+      //       }
+      //       catch (e){
+      //         console.log(e)
+      //       return response.json({message: 'Anda gagal login', status : 'error'})
+      //       }
+      //     }
+      //   }
+      // }
+      // 
+      
+      async newLogin({request, auth}){
+        const {email, password } = request.all()
+        return await auth.attempt(email, password)
       }
 
       async login({request, auth, response}) {
@@ -22,18 +63,15 @@ class AuthController {
         let {email, password} = request.all();
 
         try {
-          if (await auth.attempt(email, password)) {
+          let check = await auth
+            .authenticator('jwt')
+            .withRefreshToken()
+            .attempt(email,password)
+
+          if (check) {
             let user = await User.findBy('email', email)
-            let token = await auth.generate(user)
 
-            Object.assign(user, token)
-
-            const login = {
-            	'token' : token.token,
-            	'type' : token.type,
-            	'user_id' : user.id
-            }
-            await Token.create(login)
+            Object.assign(user, check)
 
             return response.json(user)
           }
@@ -45,10 +83,15 @@ class AuthController {
           return response.json({message: 'Email/Password salah atau tidak terdaftar'})
         }
       }
-      async getPosts({request, response}) {
-        let posts = await Post.query().with('user').fetch()
+      
+      async revokeUserToken ({ request, auth }) {
+        const user = auth.current.user
+        const { refreshToken } = request.all()
 
-        return response.json(posts)
+        await auth
+          .authenticator('jwt')
+          .revokeTokens([refreshToken])
+
       }
 }
 

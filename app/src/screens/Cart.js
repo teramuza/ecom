@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Alert, FlatList } from 'react-native';
+import { Alert, FlatList, AsyncStorage } from 'react-native';
 import { View, Container, Header, Title, Content, List, ListItem, Thumbnail, Text, Left, Body, Right, Button, Footer, FooterTab, Badge, Icon, Input, Item } from 'native-base';
 import { connect } from 'react-redux';
 import Prompt from 'dev3s-react-native-prompt';
 
-import { getCarts, patchQty, delCart } from '../publics/redux/actions/carts';
+import { getCarts, patchQty, delCart, toPayment } from '../publics/redux/actions/carts';
+import { getProfile } from '../publics/redux/actions/user';
 
 
 type Props = {};
@@ -14,8 +15,8 @@ class Cart extends Component<Props> {
         header: (
             <Header androidStatusBarColor='#D32F2F' style={{backgroundColor: '#F44336'}}>
                 <Left>
-                    <Button transparent>
-                        <Icon name='arrow-back' onPress={()=> navigation.navigate('Home')}/>
+                    <Button transparent onPress={()=> navigation.navigate('Home')}>
+                        <Icon name='arrow-back'/>
                     </Button>
                 </Left>
                 <Body>
@@ -136,7 +137,7 @@ class Cart extends Component<Props> {
                         <Text style={{color: '#757575', paddingBottom: 5}}>Total</Text>
                         <Text style={{color: '#757575', fontSize: 15}}>Rp {this.totalPrice()},-</Text>
                     </Button>
-                    <Button active rounded style={{backgroundColor: '#FF5252', flex : 4, flexDirection: 'row'}} onPress={() => this.props.navigation.navigate('Payment')} >
+                    <Button active rounded style={{backgroundColor: '#FF5252', flex : 4, flexDirection: 'row'}} onPress={() => this.toPayment()} >
                         <Text style={{fontSize: 16, paddingTop: 3}}>Checkout</Text>
                         <Icon name="arrow-dropright" style={{paddingLeft: -10}}/>
                     </Button>
@@ -209,6 +210,18 @@ class Cart extends Component<Props> {
     priceToString(value){
         stringPrice = value.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.")
         return stringPrice
+    }
+
+    async toPayment(){
+        const userId = await AsyncStorage.getItem('userId')
+        const token = await AsyncStorage.getItem('token')
+        
+        try{
+            await this.props.dispatch(getProfile(userId, token))
+            this.props.navigation.navigate('Payment')
+        }catch{
+            this.props.navigation.navigate('Login', {nextScreen : 'Payment'})
+        }
     }
     
 }

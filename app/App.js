@@ -8,9 +8,13 @@ import store from './src/publics/redux/store';
 import Products from './src/screens/Products';
 import ProductDetail from './src/screens/productDetail';
 import Cart from './src/screens/Cart';
+import Payment from './src/screens/Payment';
 import Favorite from './src/screens/Favorite';
-import Login from './src/screens/Login'
+import Login from './src/screens/Login';
+import Register from './src/screens/Register';
 import Profile from './src/screens/Profile';
+import Success from './src/screens/Success';
+
 
 const AppNavigator = createStackNavigator({
 
@@ -34,6 +38,14 @@ const AppNavigator = createStackNavigator({
             screen: Cart
         },
 
+        Payment : {
+            screen : Payment
+        },
+
+        Success : {
+            screen : Success
+        },
+
         Favorite : {
             screen : Favorite
         },
@@ -41,6 +53,11 @@ const AppNavigator = createStackNavigator({
         Login : {
             screen : Login
         },
+
+        Register : {
+            screen : Register
+        },
+
         Profile : {
             screen : Profile,
             navigationOptions: {
